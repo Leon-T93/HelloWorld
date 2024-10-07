@@ -3,5 +3,6 @@ public class Main {
         System.out.println("Leon Thur");
         System.out.println("Treci sat predavanja");
         System.out.println("Cetvrti sat predavanja");
+        System.out.println("Peti sat predavanja");
     }
 }
