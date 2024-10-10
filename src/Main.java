@@ -5,22 +5,28 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
+        int broj;
+        int pogodak = 0;
+        int zbroj = 0;
+
+        System.out.println("Unesi broj dok ne pogodis.");
+
+        broj = scanner.nextInt();
+
+        while(broj!=pogodak){
+
+            zbroj = zbroj + broj;
+
+            System.out.println("Pokusaj ponovo.");
+
+            broj = scanner.nextInt();
+
+        }
+
+        System.out.println("Rezultat je: " + zbroj);
 
 
-        int sretniBroj;
 
-        do {
-            System.out.println("Odaberite broj od 1 do 10.");
-
-            sretniBroj = scanner.nextInt();
-
-            if (sretniBroj >7 || sretniBroj <7){
-                System.out.println("Nažalost niste pogodili, probajte ponovo.");
-            }
-
-        }while (sretniBroj >7 || sretniBroj <7);
-
-        System.out.println("Bravo, pogodili ste broj i osvojili....ovaj tekst....");
 
 
 
