@@ -5,21 +5,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        int pocetak = 1;
-        int zbroj = 0;
-        System.out.println("Molim unesite pozitivan broj");
+
+        System.out.println("Molim unesite broj");
         int uneseniBroj = scanner.nextInt();
 
-        while(uneseniBroj<0){
-            System.out.println("Molim unesite pozitivan broj");
-            uneseniBroj = scanner.nextInt();
-        }
 
-        for (int i =1; i <= uneseniBroj; i++){
-            zbroj += i; 
-        }
+        int length = String.valueOf(uneseniBroj).length();
 
-        System.out.println("Rezultat je: " + zbroj);
+        System.out.println("Broj znamenki u vašem broju je: " + length);
+
 
 
 
