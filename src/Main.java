@@ -5,22 +5,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
-        int broj;
-        int pogodak = 0;
+        int pocetak = 1;
         int zbroj = 0;
+        System.out.println("Molim unesite pozitivan broj");
+        int uneseniBroj = scanner.nextInt();
 
-        System.out.println("Unesi broj dok ne pogodis.");
+        while(uneseniBroj<0){
+            System.out.println("Molim unesite pozitivan broj");
+            uneseniBroj = scanner.nextInt();
+        }
 
-        broj = scanner.nextInt();
-
-        while(broj!=pogodak){
-
-            zbroj = zbroj + broj;
-
-            System.out.println("Pokusaj ponovo.");
-
-            broj = scanner.nextInt();
-
+        for (int i =1; i <= uneseniBroj; i++){
+            zbroj += i; 
         }
 
         System.out.println("Rezultat je: " + zbroj);
