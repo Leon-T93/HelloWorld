@@ -4,37 +4,34 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Unesite velicinu polja: ");
+        int velicinaPolja = scanner.nextInt();
 
-        int maxBroj = 20;
-        int uneseniBroj;
-        int zbroj = 0;
-        int brojac = 0;
+        int[] polje = new int[velicinaPolja];
 
+        for (int i = 0; i < polje.length; i++){
+            System.out.println("Unesite vrijednost "+ (i + 1) + ". elementa:");
+            polje[i] = scanner.nextInt();
+        }
 
-        while (zbroj < maxBroj) {
-            System.out.println("Unesite pozitivan broj: ");
-            uneseniBroj = scanner.nextInt();
-
-            if(uneseniBroj > 0) {
-                zbroj = zbroj + uneseniBroj;
-
-                brojac = brojac + 1;
-            }else if (uneseniBroj < 0) {
-                System.out.println("Nemozete unjeti negativan broj!");
-            }else {
-                System.out.println("Unjeli ste 0. Program se prekida." );
-                break;
+        int maxElement = polje[0];
+        for (int i = 1; i<polje.length; i++){
+            if (polje[i] > maxElement){
+                maxElement = polje[i];
             }
         }
 
-        System.out.println("Zbroj unesenih brojeva iznosi " + zbroj);
-        System.out.println("Broj uspjesnih pokusaja " + brojac);
-
-
-
+        System.out.println("maximalni element polja je: " + maxElement);
 
 
 
 
     }
 }
+
+
+
+
+
+
+
