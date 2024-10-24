@@ -26,10 +26,10 @@ public class Main {
         Boolean sortirano = false;
 
         for (int i=0; i<lista.size(); i++){
-            if (lista.get(i)>(lista.get(i)+1)){
+            if (lista.get(i)>lista.get(i+1)){
                 System.out.println("Lista nije uzlazna!");
                 sortirano = true;
-                break; 
+                break;
             }
         }
         if (sortirano == false){
