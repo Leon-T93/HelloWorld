@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-// Traziti od korisnika unos liste stringova sve dok ne napise Stop, nakon toga izbrojiti koliko stringova sadrzi rijec Java
+//Tražiti od korisnika da unese broj elemenata u listi te popuni elemente liste.
+//Nakon toga pretražiti po listi da li postoji ijedan duplikat, ukoliko postoji ispisi vrijednost true, ukoliko ne postoji ispisi vrijednost false.
 public class Main {
-
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -13,24 +13,30 @@ public class Main {
         System.out.println("Unesite broj elemenata: ");
         int brojElemenata = scanner.nextInt();
 
-        for(int i = 0; i< brojElemenata; i++){
+        for (int i = 0; i < brojElemenata; i++) {
             System.out.println("Unesite željeni broj: ");
             brojevi.add(scanner.nextInt());
         }
 
-        int trenutniBroj=brojevi.get(0);
+        provjeraSortiranosti(brojevi);
+    }
 
-        for (int i=0; i< brojevi.size();i++){
-            if(brojevi.get(i)==trenutniBroj){
-                trenutniBroj=brojevi.get(i);
-                System.out.println("True");
+    public static Boolean provjeraSortiranosti(List<Integer> lista){
 
+        Boolean sortirano = false;
+
+        for (int i=0; i<lista.size(); i++){
+            if (lista.get(i)>(lista.get(i)+1)){
+                System.out.println("Lista nije uzlazna!");
+                sortirano = true;
+                break; 
             }
-
+        }
+        if (sortirano == false){
+            System.out.println("Lista je uzlazna");
         }
 
-
-
+        return sortirano;
 
     }
 }
