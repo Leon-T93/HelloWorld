@@ -23,16 +23,16 @@ public class Main {
 
     public static Boolean provjeraSortiranosti(List<Integer> lista){
 
-        Boolean sortirano = false;
+        Boolean sortirano = true;
 
-        for (int i=0; i<lista.size(); i++){
+        for (int i=0; i<lista.size()-1; i++){
             if (lista.get(i)>lista.get(i+1)){
                 System.out.println("Lista nije uzlazna!");
-                sortirano = true;
+                sortirano = false;
                 break;
             }
         }
-        if (sortirano == false){
+        if (sortirano == true){
             System.out.println("Lista je uzlazna");
         }
 
