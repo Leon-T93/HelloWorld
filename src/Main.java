@@ -7,17 +7,17 @@ public class Main {
 
         Polaznik Marko = new Polaznik("Marko", "Markic");
         Polaznik Ivan = new Polaznik("Ivan", "Ivic", 25, "M");
-        Polaznik TkoJeTajPokremon = new Polaznik();
+        Polaznik TkoJeTajPokemon = new Polaznik();
 
 
         System.out.println(Marko.dohvatiIme() +" "+ Marko.dohvatiPrezime());
 
         Ivan.promjeniDob(26);
 
-        TkoJeTajPokremon.dodajIme("Pikachu");
-        TkoJeTajPokremon.dodajPrezime("Strujic");
+        TkoJeTajPokemon.dodajIme("Pikachu");
+        TkoJeTajPokemon.dodajPrezime("Strujic");
 
-        
+
 
 
 
