@@ -20,10 +20,15 @@ public class Main {
         System.out.println("Unesi zeljeni popust za proizvod: "+ prvi.dohvatiNaziv());
         prvi.dodajPopust(scanner.nextBigDecimal());
 
-        BigDecimal racunica = prvi.dohvatiCijenu().multiply(prvi.dohvatiPopust()).divide(BigDecimal.valueOf(100));
-        BigDecimal rezultat = prvi.dohvatiCijenu().subtract(racunica);
 
-        System.out.println("Iznos je: " + rezultat);
+
+        System.out.println("Iznos je: " + prvi.dohvatikonacnuCijenu());
+
+        System.out.println("Iznos je: " + prvi.dohvatikonacnuCijenux());
+
+
+
+
 
 
 

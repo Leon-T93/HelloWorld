@@ -45,15 +45,23 @@ public class Proizvod {
 
 
 
-    private void racunanjePopusta (BigDecimal xRacunica, BigDecimal xRezultat){
-        xRacunica = this.cijena.multiply(this.popust).divide(BigDecimal.valueOf(100));
-        xRezultat = this.cijena.subtract(xRacunica);
+    public BigDecimal dohvatikonacnuCijenu (){
+        BigDecimal xRacunica = this.cijena.multiply(this.popust).divide(BigDecimal.valueOf(100));
+        BigDecimal xRezultat = this.cijena.subtract(xRacunica);
+        return xRezultat;
+    }
+
+    private void racunanjePopusta (){
+        BigDecimal xRacunica = this.cijena.multiply(this.popust).divide(BigDecimal.valueOf(100));
+        BigDecimal xRezultat = this.cijena.subtract(xRacunica);
         this.konacnaCijena = xRezultat;
     }
 
-    public BigDecimal dohvatikonacnuCijenu (){
+    public BigDecimal dohvatikonacnuCijenux (){
         return this.konacnaCijena;
     }
+
+
 
 
 
