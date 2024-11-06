@@ -51,7 +51,7 @@ public class Proizvod {
         return xRezultat;
     }
 
-    private void racunanjePopusta (){
+    public void racunanjePopusta (){
         BigDecimal xRacunica = this.cijena.multiply(this.popust).divide(BigDecimal.valueOf(100));
         BigDecimal xRezultat = this.cijena.subtract(xRacunica);
         this.konacnaCijena = xRezultat;

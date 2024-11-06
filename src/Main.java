@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -9,22 +11,55 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Proizvod prvi = new Proizvod();
-
-        System.out.println("Postavi naziv proizvoda: ");
-        prvi.dodajNaziv(scanner.nextLine());
-
-        System.out.println("Postavi cijenu proizvoda: " + prvi.dohvatiNaziv());
-        prvi.dodajCijenu(scanner.nextBigDecimal());
-
-        System.out.println("Unesi zeljeni popust za proizvod: "+ prvi.dohvatiNaziv());
-        prvi.dodajPopust(scanner.nextBigDecimal());
+        String ime;
+        String prezime;
 
 
+        List studenti = new ArrayList<>();
 
-        System.out.println("Iznos je: " + prvi.dohvatikonacnuCijenu());
+        Boolean provjera= false;
 
-        System.out.println("Iznos je: " + prvi.dohvatikonacnuCijenux());
+        String odabir;
+
+        int broj;
+
+
+
+        while (provjera == false) {
+
+
+            System.out.println("Za unos studenta birajte 1, za izlaz iz unosa 2.");
+            broj = scanner.nextInt();
+
+            if (broj == 1){
+                System.out.println("Unesite ime studenta: ");
+                odabir = scanner.nextLine();
+                studenti.add(odabir);
+
+            }if (broj == 2){
+                provjera= true;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
