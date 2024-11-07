@@ -11,37 +11,79 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        String ime;
-        String prezime;
+        TekuciRacun TekuciRacun= new TekuciRacun("123456", BigDecimal.valueOf(500),"Marko Markic",BigDecimal.valueOf(0.1));
+        StedniRacun StedniRacun= new StedniRacun("12345678", BigDecimal.valueOf(500),"Niko Nikic",BigDecimal.valueOf(1.5));
+
+        int odabir;
+        System.out.println("Odaberite 1 za TekuciRacun, 2 za StedniRacun");
+        odabir = scanner.nextInt();
+        switch (odabir) {
+            case 1:
+                int odabir2;
+                do {
+                    System.out.println("Odaberite:");
+                    System.out.println("1 za uplatu");
+                    System.out.println("2 za isplatu");
+                    System.out.println("3 za ispis kamatne stope i trenutnog stanja");
+                    System.out.println("4 za izlaz");
+                    odabir2 = scanner.nextInt();
+                    switch (odabir2) {
+                        case 1:
+                            System.out.println("Unesite koliko zelite uplatitit: ");
+                            TekuciRacun.uplataNaRacun(scanner.nextBigDecimal());
+                            break;
+                        case 2:
+                            System.out.println("Unesite koliko zelite podici: ");
+                            TekuciRacun.isplataSaRacuna(scanner.nextBigDecimal());
+                            break;
+                        case 3:
+                            System.out.println("Kamatna stopa: " +TekuciRacun.getKamatnaStopa());
+
+                            System.out.println("Trenutno stanje racuna: " + TekuciRacun.obracunKamate());
+
+                            break;
+                    }
+
+                } while (odabir2 != 4);
 
 
-        List studenti = new ArrayList<>();
+            case 2:
+                int odabir3;
+                do {
+                    System.out.println("Odaberite:");
+                    System.out.println("1 za uplatu");
+                    System.out.println("2 za isplatu");
+                    System.out.println("3 za ispis kamatne stope i trenutnog stanja");
+                    System.out.println("4 za izlaz");
+                    odabir3 = scanner.nextInt();
+                    switch (odabir3) {
+                        case 1:
+                            System.out.println("Unesite koliko zelite uplatitit: ");
+                            StedniRacun.uplataNaRacun(scanner.nextBigDecimal());
+                            break;
+                        case 2:
+                            System.out.println("Unesite koliko zelite podici: ");
+                            StedniRacun.isplataSaRacuna(scanner.nextBigDecimal());
+                            break;
+                        case 3:
+                            System.out.println("Kamatna stopa: "+StedniRacun.getKamatnaStopa());
 
-        Boolean provjera= false;
+                            System.out.println("Trenutno stanje racuna: "+StedniRacun.obracunKamate());
 
-        String odabir;
+                            break;
+                    }
 
-        int broj;
-
-
-
-        while (provjera == false) {
-
-
-            System.out.println("Za unos studenta birajte 1, za izlaz iz unosa 2.");
-            broj = scanner.nextInt();
-
-            if (broj == 1){
-                System.out.println("Unesite ime studenta: ");
-                odabir = scanner.nextLine();
-                studenti.add(odabir);
-
-            }if (broj == 2){
-                provjera= true;
-            }
-
+                } while (odabir3 != 4);
 
         }
+
+
+
+    }
+
+
+
+
 
 
 
@@ -78,7 +120,7 @@ public class Main {
 
 
     }
-}
+
 
 
 
