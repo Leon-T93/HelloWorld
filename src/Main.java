@@ -11,69 +11,74 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        TekuciRacun TekuciRacun= new TekuciRacun("123456", BigDecimal.valueOf(500),"Marko Markic",BigDecimal.valueOf(0.1));
-        StedniRacun StedniRacun= new StedniRacun("12345678", BigDecimal.valueOf(500),"Niko Nikic",BigDecimal.valueOf(1.5));
+        Stalni zaposlenik1= new Stalni();
+        Sezonski zaposlenik2= new Sezonski();
+
+        List<OsnovniZaposlenik> zaposlenici = new ArrayList<>();
+
 
         int odabir;
-        System.out.println("Odaberite 1 za TekuciRacun, 2 za StedniRacun");
-        odabir = scanner.nextInt();
+
+        System.out.println("Odaberite vrstu zaposlenika: 1 za stalnog, 2 za sezonskog");
+
+        odabir= scanner.nextInt();
+
         switch (odabir) {
-            case 1:
-                int odabir2;
-                do {
-                    System.out.println("Odaberite:");
-                    System.out.println("1 za uplatu");
-                    System.out.println("2 za isplatu");
-                    System.out.println("3 za ispis kamatne stope i trenutnog stanja");
-                    System.out.println("4 za izlaz");
-                    odabir2 = scanner.nextInt();
-                    switch (odabir2) {
-                        case 1:
-                            System.out.println("Unesite koliko zelite uplatitit: ");
-                            TekuciRacun.uplataNaRacun(scanner.nextBigDecimal());
-                            break;
-                        case 2:
-                            System.out.println("Unesite koliko zelite podici: ");
-                            TekuciRacun.isplataSaRacuna(scanner.nextBigDecimal());
-                            break;
-                        case 3:
-                            System.out.println("Kamatna stopa: " +TekuciRacun.getKamatnaStopa());
+            case 1: //stalni
+                System.out.println("Unesite ime zaposlenika: ");
+                zaposlenik1.setImeZaposlenika(scanner.next());
+                System.out.println("Unesite osnovnu placu: ");
+                zaposlenik1.setOsnovnaPlaca(scanner.nextBigDecimal());
+                System.out.println("Unesite broj radnih sati: ");
+                zaposlenik1.setBrojRadnihSati(scanner.nextBigDecimal());
+                BigDecimal bonus = new BigDecimal(160);
+                if (zaposlenik1.getBrojRadnihSati().compareTo(bonus) == 1){
+                    zaposlenik1.stalniIzracunBonusaAkoImaPreko160h();
+                }
+                zaposlenici.add(zaposlenik1);
 
-                            System.out.println("Trenutno stanje racuna: " + TekuciRacun.obracunKamate());
-
-                            break;
-                    }
-
-                } while (odabir2 != 4);
+                System.out.println("Ime: "+ zaposlenik1.getImeZaposlenika());
+                System.out.println("Osnovna placa: "+ zaposlenik1.getOsnovnaPlaca());
+                System.out.println("Broj radnih sati: "+zaposlenik1.getBrojRadnihSati());
+                System.out.println("Bonus: "+ zaposlenik1.getStalniBonusOver160h());
+                break;
 
 
-            case 2:
-                int odabir3;
-                do {
-                    System.out.println("Odaberite:");
-                    System.out.println("1 za uplatu");
-                    System.out.println("2 za isplatu");
-                    System.out.println("3 za ispis kamatne stope i trenutnog stanja");
-                    System.out.println("4 za izlaz");
-                    odabir3 = scanner.nextInt();
-                    switch (odabir3) {
-                        case 1:
-                            System.out.println("Unesite koliko zelite uplatitit: ");
-                            StedniRacun.uplataNaRacun(scanner.nextBigDecimal());
-                            break;
-                        case 2:
-                            System.out.println("Unesite koliko zelite podici: ");
-                            StedniRacun.isplataSaRacuna(scanner.nextBigDecimal());
-                            break;
-                        case 3:
-                            System.out.println("Kamatna stopa: "+StedniRacun.getKamatnaStopa());
+            case 2: //sezonski
+                System.out.println("Unesite ime zaposlenika: ");
+                zaposlenik2.setImeZaposlenika(scanner.next());
+                System.out.println("Unesite osnovnu placu: ");
+                zaposlenik2.setOsnovnaPlaca(scanner.nextBigDecimal());
+                System.out.println("Unesite broj radnih sati: ");
+                zaposlenik2.setBrojRadnihSati(scanner.nextBigDecimal());
+                BigDecimal b3 = new BigDecimal(200);
+                if (zaposlenik2.getBrojRadnihSati().compareTo(b3) == 1){
+                    zaposlenik2.sezonskiIzracunBonusaAkoImaPreko200h();
+                }
+                zaposlenici.add(zaposlenik2);
 
-                            System.out.println("Trenutno stanje racuna: "+StedniRacun.obracunKamate());
+                System.out.println("Ime: "+ zaposlenik2.getImeZaposlenika());
+                System.out.println("Osnovna placa: "+ zaposlenik2.getOsnovnaPlaca());
+                System.out.println("Broj radnih sati: "+zaposlenik2.getBrojRadnihSati());
+                System.out.println("Bonus: "+ zaposlenik2.getSezonskiBonusOver200h());
+                break;
+        }
 
-                            break;
-                    }
+        for (int i=0; i<zaposlenici.size(); i++){
+            System.out.println("Ime: "+ zaposlenici.getImeZaposlenika());
+        }
 
-                } while (odabir3 != 4);
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
@@ -119,7 +124,7 @@ public class Main {
 
 
 
-    }
+
 
 
 
