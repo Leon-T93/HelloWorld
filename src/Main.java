@@ -31,25 +31,30 @@ public class Main {
         switch (odabir) {
             case 1:
                 nacinPlacanja = new KreditnaKartica();
-                nacinPlacanja.platiti(iznos);
-                System.out.println(nacinPlacanja.getDetalje());
                 break;
 
             case 2:
                 nacinPlacanja = new Gotovina();
-                nacinPlacanja.platiti(iznos);
-                System.out.println(nacinPlacanja.getDetalje());
                 break;
 
-            case 3:
+            default:
                 nacinPlacanja = new PayPal();
-                nacinPlacanja.platiti(iznos);
-                System.out.println(nacinPlacanja.getDetalje());
                 break;
+
+
+
+
         }
 
+        nacinPlacanja.platiti(iznos);
+        System.out.println(nacinPlacanja.getDetalje());
 
-        
+
+
+
+
+
+
 
 
 
