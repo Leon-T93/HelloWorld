@@ -26,25 +26,33 @@ public class Main {
 
         odabir = scanner.nextInt();
 
+        Placanje nacinPlacanja;
+
         switch (odabir) {
             case 1:
-                KreditnaKartica kartica = new KreditnaKartica();
-                kartica.platiti(iznos);
-                System.out.println(kartica.getDetalje());
+                nacinPlacanja = new KreditnaKartica();
+                nacinPlacanja.platiti(iznos);
+                System.out.println(nacinPlacanja.getDetalje());
                 break;
 
             case 2:
-                Gotovina gotovina = new Gotovina();
-                gotovina.platiti(iznos);
-                System.out.println(gotovina.getDetalje());
+                nacinPlacanja = new Gotovina();
+                nacinPlacanja.platiti(iznos);
+                System.out.println(nacinPlacanja.getDetalje());
                 break;
 
             case 3:
-                PayPal payPal = new PayPal();
-                payPal.platiti(iznos);
-                System.out.println(payPal.getDetalje());
+                nacinPlacanja = new PayPal();
+                nacinPlacanja.platiti(iznos);
+                System.out.println(nacinPlacanja.getDetalje());
                 break;
         }
+
+
+        
+
+
+
 
 
 
