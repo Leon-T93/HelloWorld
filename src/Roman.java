@@ -8,7 +8,7 @@ public class Roman implements Knjiga{
 
     private Integer brojStranica;
 
-    private Boolean stanje;
+    private Boolean stanjeAvailability;
 
 
     public Roman (String naslov, String autor) {
@@ -26,8 +26,8 @@ public class Roman implements Knjiga{
         }
     }
 
-    public Roman (Boolean stanje) {
-        this.stanje=stanje;
+    public Roman (Boolean stanjeAvailability) {
+        this.stanjeAvailability=stanjeAvailability;
     }
 
 
@@ -56,16 +56,16 @@ public class Roman implements Knjiga{
 
     @Override
     public String getStanje() {
-        return "Stanje romana: " + this.stanje;
+        return "Stanje romana: " + this.stanjeAvailability;
     }
 
     @Override
     public void posudi() {
-        this.stanje = stanje;
+        this.stanjeAvailability = false;
     }
 
     @Override
     public void vrati() {
-        this.stanje=  stanje;
+        this.stanjeAvailability=  true;
     }
 }

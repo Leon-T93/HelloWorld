@@ -8,7 +8,7 @@ public class Strip implements Knjiga{
 
     private Integer brojStranica;
 
-    private Boolean stanje;
+    private Boolean stanjeAvailability;
 
 
 
@@ -27,8 +27,8 @@ public class Strip implements Knjiga{
         }
     }
 
-    public Strip (Boolean stanje) {
-        this.stanje=stanje;
+    public Strip (Boolean stanjeAvailability) {
+        this.stanjeAvailability=stanjeAvailability;
     }
 
 
@@ -57,16 +57,16 @@ public class Strip implements Knjiga{
 
     @Override
     public String getStanje() {
-        return "Stanje stripa: " + this.stanje;
+        return "Stanje stripa: " + this.stanjeAvailability;
     }
 
     @Override
     public void posudi() {
-        this.stanje = stanje;
+        this.stanjeAvailability = stanjeAvailability;
     }
 
     @Override
     public void vrati() {
-        this.stanje=  stanje;
+        this.stanjeAvailability=  stanjeAvailability;
     }
 }
