@@ -13,15 +13,8 @@ public class Student {
         this.brIndexa=brIndexa;
     }
 
-    public String getIme () {
-        return this.ime;
-    }
 
-    public String getPrezime () {
-        return this.prezime;
-    }
-
-    public Integer getBrIndexa () {
-        return this.brIndexa;
+    public String getStudent () {
+        return "Ime: "+ this.ime + "\n" + "Prezime: " + this.prezime + "\n"+ "Broj Indexa: "+ this.brIndexa;
     }
 }

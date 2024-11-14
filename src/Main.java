@@ -21,12 +21,13 @@ public class Main {
         Writer out= new FileWriter("studenti.txt");
         PrintWriter easyout = new PrintWriter(out);
         easyout.println("Podatci prvog studenta: " );
-        easyout.println("Ime: " + student1.getIme()+ "\n"+ "Prezime: " + student1.getPrezime()+ "\n" +"Broj Indexa: " + student1.getBrIndexa() );
+        easyout.println(student1.getStudent());
         easyout.println("\n"+"Podatci drugog studenta: " );
-        easyout.println("Ime: " + student2.getIme()+ "\n"+ "Prezime: " + student2.getPrezime()+ "\n" +"Broj Indexa: " + student2.getBrIndexa() );
+        easyout.println(student2.getStudent());
         easyout.println("\n"+"Podatci treceg studenta: ");
-        easyout.println("Ime: " + student3.getIme()+ "\n"+ "Prezime: " + student3.getPrezime()+ "\n" +"Broj Indexa: " + student3.getBrIndexa() );
+        easyout.println(student3.getStudent());
 
+        out.close();
 
         File inputFile = new File("studenti.txt");
         FileReader in = new FileReader(inputFile);
@@ -34,11 +35,10 @@ public class Main {
         int c;
         while ((c= in.read()) != -1) {
             i++;
-            System.out.println("Broj znakova je: "+ i);
         }
+            System.out.println("Broj znakova je: "+ i);
 
         in.close();
-        out.close();
 
 
 

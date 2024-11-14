@@ -9,6 +9,6 @@ Prezime: Peric
 Broj Indexa: 90
 
 Podatci treceg studenta: 
-Ime: Ivan
-Prezime: Ivic
-Broj Indexa: 20
+Ime: Marko
+Prezime: Maric
+Broj Indexa: 50
