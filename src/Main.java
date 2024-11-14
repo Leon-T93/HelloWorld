@@ -1,3 +1,5 @@
+import java.io.*;
+import java.nio.CharBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,51 +13,32 @@ public class Main {
 
 
 
-
-        //●Obradi iznimke koje se mogu pojaviti tijekom računanja faktorijela. Na primjer, obradi situaciju kada korisnik unese negativan broj jer faktorijel nije
-        // definiran za negativne brojeve.
-        //●Ispiši rezultat ili poruku o greški, ovisno o tome je li računanje faktorijela uspješno ili ne
-
+        Student student1= new Student("Marko" , "Maric", 50);
+        Student student2= new Student("Petar" , "Peric", 90);
+        Student student3= new Student("Ivan" , "Ivic", 20);
 
 
-
-        System.out.println("Unesite željeni broj: ");
-        int broj;
-
-        boolean ispravniUnos =false;
-
-        do {
-            try {
-                Scanner scanner = new Scanner(System.in);
-                broj = scanner.nextInt();
-                ispravniUnos= true;
+        Writer out= new FileWriter("studenti.txt");
+        PrintWriter easyout = new PrintWriter(out);
+        easyout.println("Podatci prvog studenta: " );
+        easyout.println("Ime: " + student1.getIme()+ "\n"+ "Prezime: " + student1.getPrezime()+ "\n" +"Broj Indexa: " + student1.getBrIndexa() );
+        easyout.println("\n"+"Podatci drugog studenta: " );
+        easyout.println("Ime: " + student2.getIme()+ "\n"+ "Prezime: " + student2.getPrezime()+ "\n" +"Broj Indexa: " + student2.getBrIndexa() );
+        easyout.println("\n"+"Podatci treceg studenta: ");
+        easyout.println("Ime: " + student3.getIme()+ "\n"+ "Prezime: " + student3.getPrezime()+ "\n" +"Broj Indexa: " + student3.getBrIndexa() );
 
 
-            } catch (Exception e) {
-                System.out.println("Unjeli ste slovo ili decimalan broj, probajte ponovno!");
-                broj=1;
-
-            }
-
-            if (broj <0) {
-                throw new Exception("Nemoze negativan broj");
-            }
-
-        }while (ispravniUnos!=true);
-
-        int faktorijelBroja = 1;
-
-
-
-        for (int i = 1; i < (broj + 1); i++) {
-        faktorijelBroja = faktorijelBroja * i;
+        File inputFile = new File("studenti.txt");
+        FileReader in = new FileReader(inputFile);
+        int i = 0;
+        int c;
+        while ((c= in.read()) != -1) {
+            i++;
+            System.out.println("Broj znakova je: "+ i);
         }
 
-
-
-
-
-        System.out.println("Faktorijel od broja " + broj + " je " + faktorijelBroja);
+        in.close();
+        out.close();
 
 
 
@@ -68,6 +51,10 @@ public class Main {
 
 
     }
+
+
+
+
 
 
 
