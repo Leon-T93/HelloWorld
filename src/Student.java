@@ -14,7 +14,7 @@ public class Student {
     }
 
 
-    public String getStudent () {
+    public String getStudentInfo () {
         return "Ime: "+ this.ime + "\n" + "Prezime: " + this.prezime + "\n"+ "Broj Indexa: "+ this.brIndexa;
     }
 }

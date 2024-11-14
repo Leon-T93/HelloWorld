@@ -21,11 +21,11 @@ public class Main {
         Writer out= new FileWriter("studenti.txt");
         PrintWriter easyout = new PrintWriter(out);
         easyout.println("Podatci prvog studenta: " );
-        easyout.println(student1.getStudent());
+        easyout.println(student1.getStudentInfo());
         easyout.println("\n"+"Podatci drugog studenta: " );
-        easyout.println(student2.getStudent());
+        easyout.println(student2.getStudentInfo());
         easyout.println("\n"+"Podatci treceg studenta: ");
-        easyout.println(student3.getStudent());
+        easyout.println(student3.getStudentInfo());
 
         out.close();
 
