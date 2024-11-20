@@ -56,17 +56,20 @@ public class Razred {
     public void setImeRazrednika(String imeRazrednika) {
         this.imeRazrednika = imeRazrednika;
     }
-    
+
 
     public void pronadiNajboljegUcenikaPoProsjekuOcjena (){
-        int najveci= 0;
+        int najveciBroj= 0;
+        Ucenik najveci=null;
         for (int i=0; i<this.ucenici.size(); i++ ) {
-            if (prosjekOcjena > najveci) {
-                najveci = prosjekOcjena;
+            if (ucenici.get(i).getProsjekOcjena() > najveciBroj) {
+                najveciBroj = ucenici.get(i).getProsjekOcjena();
+                najveci = ucenici.get(i);
             }
-
-            System.out.println("Najbolji ucenik: " + ucenici.get(i));
-
         }
+
+            System.out.println("Najbolji ucenik: " + najveci.getIme() + " " +  najveci.getPrezime() + " sa prosjekom ocjena : " + najveci.getProsjekOcjena());
+
+
     }
 }
