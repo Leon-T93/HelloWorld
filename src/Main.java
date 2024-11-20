@@ -1,127 +1,29 @@
-import java.io.*;
-import java.nio.CharBuffer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
-
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+        Razred razred = new Razred("1B", "Petar");
 
+        Ucenik ucenik1 = new Ucenik("Ana", "Anic", 4);
+        razred.dodajUcenika(ucenik1);
 
+        Ucenik ucenik2 = new Ucenik("Ivan", "Ivic", 3);
+        razred.dodajUcenika(ucenik2);
 
+        Ucenik ucenik3 = new Ucenik("Marko", "Maric", 2);
+        razred.dodajUcenika(ucenik3);
 
-        Student student1= new Student("Marko" , "Maric", 50);
-        Student student2= new Student("Petar" , "Peric", 90);
-        Student student3= new Student("Ivan" , "Ivic", 20);
+        Ucenik ucenik4 = new Ucenik("Filip", "Filipic", 5);
+        razred.dodajUcenika(ucenik4);
 
-
-        Writer out= new FileWriter("studenti.txt");
-        PrintWriter easyout = new PrintWriter(out);
-        easyout.println("Podatci prvog studenta: " );
-        easyout.println(student1.getStudentInfo());
-        easyout.println("\n"+"Podatci drugog studenta: " );
-        easyout.println(student2.getStudentInfo());
-        easyout.println("\n"+"Podatci treceg studenta: ");
-        easyout.println(student3.getStudentInfo());
-
-        out.close();
-
-        File inputFile = new File("studenti.txt");
-        FileReader in = new FileReader(inputFile);
-        int i = 0;
-        int c;
-        while ((c= in.read()) != -1) {
-            i++;
+        for (Ucenik ucenik : razred.getUcenici()) {
+            ucenik.ispisiInfo();
         }
-            System.out.println("Broj znakova je: "+ i);
 
-        in.close();
-
+        razred.pronadiNajboljegUcenikaPoProsjekuOcjena();
 
 
 
-
-
-
-        }
 
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
