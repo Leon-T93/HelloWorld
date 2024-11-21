@@ -1,4 +1,5 @@
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tvrtka {
@@ -9,8 +10,21 @@ public class Tvrtka {
 
     public Tvrtka () {}
 
+    public Tvrtka (String ime, List<Zaposlenik> zaposlenici) {
+        this.ime = ime;
+        this.zaposlenici = new ArrayList<>();
+    }
+
     public void setImeTvrtke (String ime) {
         this.ime = ime;
+    }
+
+    public String toString() {
+        return "Zaposlenici: " + this.zaposlenici;
+    }
+
+    public List<Zaposlenik> getZaposlenici () {
+        return this.zaposlenici;
     }
 
 
@@ -33,7 +47,7 @@ public class Tvrtka {
             }
         }
 
-        System.out.println("Najvecu placu ima: " + zaposlenikSaNajvecomPlacom);
+        System.out.println("Najvecu placu ima: " + zaposlenikSaNajvecomPlacom.getIme() + " " + zaposlenikSaNajvecomPlacom.getPrezime() + " , sa placom vrijednosti: "+ zaposlenikSaNajvecomPlacom.getPlaca());
     }
 
 

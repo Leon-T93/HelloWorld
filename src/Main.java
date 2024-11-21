@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+
+
+
+
         Scanner scanner = new Scanner(System.in);
         Zaposlenik zaposlenik = new Zaposlenik();
-        Tvrtka tvrtka= new Tvrtka();
-        System.out.println("Unesite ime tvrtke: ");
-        tvrtka.setImeTvrtke(scanner.nextLine());
+        Tvrtka tvrtka= new Tvrtka("Tcom", null);
         System.out.println("Unesite ime zaposlenika: ");
         zaposlenik.setIme(scanner.nextLine());
         System.out.println("Unesite prezime zaposlenika: ");
@@ -20,10 +22,24 @@ public class Main {
 
 
 
+        tvrtka.ispisiZaposlenike();
+
+        tvrtka.pronadjiNajvecuPlacu();
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
