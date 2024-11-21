@@ -33,7 +33,12 @@ public class Tvrtka {
     }
 
     public void ispisiZaposlenike () {
-        System.out.println("Zaposlenici su: " + zaposlenici);
+        Zaposlenik zaposlenik;
+        for (int i=0; i < this.zaposlenici.size(); i++){
+            zaposlenik = zaposlenici.get(i);
+            System.out.println("Zaposlenici su: " + zaposlenik.getIme() + " " + zaposlenik.getPrezime() + " , sa placom vrijednosti: "+ zaposlenik.getPlaca());
+
+        }
     }
 
     public void pronadjiNajvecuPlacu () {
