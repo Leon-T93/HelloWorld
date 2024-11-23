@@ -5,66 +5,36 @@ public class Main {
 
 
 
-            Zaposlenik zaposlenik = new Zaposlenik();
-            Tvrtka tvrtka= new Tvrtka("Tcom", null);
-            int odabir = 0;
+        Osobe osobe = new Osobe();
+        Knjiznica knjiznica = new Knjiznica(null, null);
+        int broj = 0;
+
         do {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Molim odaberite akciju: ");
-            System.out.println("1 za unos zaposlenika: ");
-            System.out.println("2 za ispis zaposlenika: ");
-            System.out.println("3 za pronalazenje zaposlenika sa najvecom placom: ");
-            System.out.println("4 za izlazak iz menija. ");
 
-            odabir = scanner.nextInt();
+            System.out.println("Za unos clana odaberite 1. \nZa posudbu knjige odaberite 2. \nZa vracanje knjige odaberite 3. \nZa izlaz odaberite 4.");
 
+            broj = scanner.nextInt();
 
-            switch (odabir) {
+            switch (broj) {
+
                 case 1:
-                    System.out.println("Unesite ime zaposlenika: ");
-                    zaposlenik.setIme(scanner.next());
-                    System.out.println("Unesite prezime zaposlenika: ");
-                    zaposlenik.setPrezime(scanner.next());
-                    System.out.println("Unesite placu zaposlenika: ");
-                    zaposlenik.setPlaca(scanner.nextDouble());
-
-                    tvrtka.dodajZaposlenika(zaposlenik);
-
+                    System.out.println("Unesite ime: ");
+                    osobe.setIme(scanner.next());
+                    System.out.println("Unesite prezime: ");
+                    osobe.setPrezime(scanner.next());
+                    System.out.println("Unesite clanski broj: ");
+                    osobe.setClanskiBroj(scanner.nextInt());
+                    knjiznica.dodajClanove(osobe);
                     break;
 
                 case 2:
-                    tvrtka.ispisiZaposlenike();
-                    break;
 
                 case 3:
-                    tvrtka.pronadjiNajvecuPlacu();
-                    break;
 
                 default:
             }
-        }while (odabir != 4);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }while (broj != 4);
 
 
 
