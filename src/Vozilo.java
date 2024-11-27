@@ -1,41 +1,47 @@
 public abstract class Vozilo {
 
+    private String registarskiBroj;
+
     private String marka;
 
-    private String model;
+    private Integer godinaProizvodnje;
 
-    private String registracija;
+    public Vozilo () {}
 
-    public Vozilo (String marka, String model, String registracija) {
+    public abstract String prikaziPodatke ();
+
+
+
+    public Vozilo (String registarskiBroj, String marka, Integer godinaProizvodnje) {
+        this.registarskiBroj = registarskiBroj;
+        this. marka = marka;
+        this.godinaProizvodnje = godinaProizvodnje;
+    }
+
+    public void setRegistarskiBroj (String registarskiBroj) {
+        this.registarskiBroj = registarskiBroj;
+    }
+
+    public void setMarka (String marka) {
         this.marka = marka;
-        this.model = model;
-        this.registracija = registracija;
     }
 
-    public void setMarka (String marka){
-        this.marka = marka;
+    public void setGodinaProizvodnje (Integer godinaProizvodnje) {
+        this.godinaProizvodnje = godinaProizvodnje;
     }
 
-    public void setModel (String model){
-        this.model = model;
+    public String getRegistarskiBroj () {
+        return this.registarskiBroj;
     }
 
-    public void setRegistracija (String registracija){
-        this.registracija = registracija;
-    }
-
-    public String getMarka() {
+    public String getMarka () {
         return this.marka;
     }
 
-    public String getModel() {
-        return this.model;
-    }
-
-    public String getRegistracija() {
-        return this.registracija;
+    public Integer getGodinaProizvodnje () {
+        return this.godinaProizvodnje;
     }
 
 
-    public abstract String detaljanOpisVozila ();
+
 }
