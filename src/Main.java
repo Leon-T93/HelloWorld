@@ -1,28 +1,37 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        EvidencijaVozila listaVozila= new EvidencijaVozila();
+        System.out.println("Unesite 10 brojeva: ");
 
-        Automobil automobil = new Automobil("ZG1111AA", "BMW", 2020,4);
-        listaVozila.dodajVoziloUListuVozila(automobil);
-        Automobil automobil2 = new Automobil("OS2222BB", "Dodge", 2022,2);
-        listaVozila.dodajVoziloUListuVozila(automobil2);
+        List<Integer> brojevi= new ArrayList<>();
 
-        Motocikl motocikl = new Motocikl("DU3333CC", "Kawasaki", 2018,"dizel");
-        listaVozila.dodajVoziloUListuVozila(motocikl);
-        Motocikl motocikl2 = new Motocikl("RI4444DD", "Yamaha", 2024,"elektricni");
-        listaVozila.dodajVoziloUListuVozila(motocikl2);
+        int i=0;
+        int broj;
+        while (i<10) {
+            System.out.println("Unesite broj: ");
+            broj= scanner.nextInt();
+            brojevi.add(broj);
+            i++;
 
+        }
 
-        listaVozila.spremiPodatkeUDatoteku(listaVozila.getListaVozila());
+        int parniBrojevi = 0;
+        int neparniBrojevi= 0;
+        for (int y=0; y< brojevi.size(); y++) {
+            if (brojevi.get(y) % 2==0){
+                parniBrojevi++;
+            }else {
+                neparniBrojevi++;
+            }
+        }
 
+        System.out.println("Broj parnih brojeva je: "+ parniBrojevi + "\nBroj neparnih brojeva je: "+ neparniBrojevi);
 
 
 
