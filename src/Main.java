@@ -7,25 +7,25 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        List<Knjiga> listaKnjiga = new ArrayList<>();
+        List<Student> listaStudenata = new ArrayList<>();
 
-        Knjiga knjiga1= new Knjiga("Horror u sumi", "Marko Markic",1995);
-        listaKnjiga.add(knjiga1);
-        Knjiga knjiga2= new Knjiga("Cudo na moru", "Marko Markic",1800);
-        listaKnjiga.add(knjiga2);
-        Knjiga knjiga3= new Knjiga("Vanzemaljci", "Svemirko Svemir",3050);
-        listaKnjiga.add(knjiga3);
+        Student student1= new Student("Marko", "Maric",2.5);
+        listaStudenata.add(student1);
+        Student student2= new Student("Ivan", "Ivic",4.5);
+        listaStudenata.add(student2);
+        Student student3= new Student("Sara", "Saric",3.5);
+        listaStudenata.add(student3);
 
-        System.out.println("Unesite ime autora");
-
-        String imeAutora= scanner.nextLine();
-
-        System.out.println("Knjige od autora " +imeAutora+ " su: ");
-        for (int i=0; i<listaKnjiga.size(); i++) {
-            if (imeAutora.equals(listaKnjiga.get(i).getAutor())){
-                System.out.println(listaKnjiga.get(i).getNaslov() + " ,godina izdavanja : " + listaKnjiga.get(i).getGodinaIzdanja());
+        double najboljiProsjekOcjena=0;
+        Student najboljiStuden = null;
+        for (int i=0; i<listaStudenata.size(); i++) {
+            if (najboljiProsjekOcjena < listaStudenata.get(i).getProsjekOcjena()) {
+                najboljiProsjekOcjena = listaStudenata.get(i).getProsjekOcjena();
+                najboljiStuden = listaStudenata.get(i);
             }
         }
+
+        System.out.println("Najbolji student: "+ "\n" +najboljiStuden.getIme() +" " + najboljiStuden.getPrezime() +" sa prosjekom ocjena: " + najboljiStuden.getProsjekOcjena());
 
 
     }
