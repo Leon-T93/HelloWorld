@@ -7,32 +7,45 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Unesite 15 decimalnih brojeva: ");
+        System.out.println("Unesite 20 brojeva: ");
 
-        List<Double> brojevi= new ArrayList<>();
+        List<Integer> brojevi= new ArrayList<>();
 
         int i=0;
-        double broj;
-        while (i<15) {
+        int broj;
+        while (i<5) {
             System.out.println("Unesite broj: ");
-            broj= scanner.nextDouble();
+            broj= scanner.nextInt();
             brojevi.add(broj);
             i++;
 
         }
 
-        double najveciBroj = 0;
-        double najmanjiBroj = brojevi.get(0);
-        for (int y=0; y<brojevi.size(); y++) {
-            if (brojevi.get(y) > najveciBroj ) {
-                najveciBroj = brojevi.get(y);
-            }
-            if (brojevi.get(y) < najmanjiBroj) {
-                najmanjiBroj = brojevi.get(y);
+        List<Integer> pozitivniBrojevi = new ArrayList<>();
+        List<Integer> negativniBrojevi = new ArrayList<>();
+
+        for (int y=0; y<brojevi.size(); y++){
+            if (brojevi.get(y) >= 0) {
+                pozitivniBrojevi.add(brojevi.get(y));
+            } else {
+                negativniBrojevi.add(brojevi.get(y));
             }
         }
 
-        System.out.println("Najveci broj: " + najveciBroj + "\nNajmanji broj: "+ najmanjiBroj);
+        int zbrojPozitivnihBrojeva=0;
+        for (int z=0; z<pozitivniBrojevi.size(); z++){
+            zbrojPozitivnihBrojeva = zbrojPozitivnihBrojeva + pozitivniBrojevi.get(z);
+        }
+
+        int zbrojNegativnihBrojeva= 0;
+        for (int z=0; z<negativniBrojevi.size(); z++){
+            zbrojNegativnihBrojeva = zbrojNegativnihBrojeva + negativniBrojevi.get(z);
+        }
+
+
+
+        System.out.println("Zbroj pozitivnih brojevi: " + zbrojPozitivnihBrojeva + "\nZbroj negativnih brojevi: " + zbrojNegativnihBrojeva);
+
 
 
     }
