@@ -7,32 +7,32 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Unesite 10 brojeva: ");
+        System.out.println("Unesite 15 decimalnih brojeva: ");
 
-        List<Integer> brojevi= new ArrayList<>();
+        List<Double> brojevi= new ArrayList<>();
 
         int i=0;
-        int broj;
-        while (i<10) {
+        double broj;
+        while (i<15) {
             System.out.println("Unesite broj: ");
-            broj= scanner.nextInt();
+            broj= scanner.nextDouble();
             brojevi.add(broj);
             i++;
 
         }
 
-        int parniBrojevi = 0;
-        int neparniBrojevi= 0;
-        for (int y=0; y< brojevi.size(); y++) {
-            if (brojevi.get(y) % 2==0){
-                parniBrojevi++;
-            }else {
-                neparniBrojevi++;
+        double najveciBroj = 0;
+        double najmanjiBroj = brojevi.get(0);
+        for (int y=0; y<brojevi.size(); y++) {
+            if (brojevi.get(y) > najveciBroj ) {
+                najveciBroj = brojevi.get(y);
+            }
+            if (brojevi.get(y) < najmanjiBroj) {
+                najmanjiBroj = brojevi.get(y);
             }
         }
 
-        System.out.println("Broj parnih brojeva je: "+ parniBrojevi + "\nBroj neparnih brojeva je: "+ neparniBrojevi);
-
+        System.out.println("Najveci broj: " + najveciBroj + "\nNajmanji broj: "+ najmanjiBroj);
 
 
     }
