@@ -7,45 +7,25 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Unesite 20 brojeva: ");
+        List<Knjiga> listaKnjiga = new ArrayList<>();
 
-        List<Integer> brojevi= new ArrayList<>();
+        Knjiga knjiga1= new Knjiga("Horror u sumi", "Marko Markic",1995);
+        listaKnjiga.add(knjiga1);
+        Knjiga knjiga2= new Knjiga("Cudo na moru", "Marko Markic",1800);
+        listaKnjiga.add(knjiga2);
+        Knjiga knjiga3= new Knjiga("Vanzemaljci", "Svemirko Svemir",3050);
+        listaKnjiga.add(knjiga3);
 
-        int i=0;
-        int broj;
-        while (i<5) {
-            System.out.println("Unesite broj: ");
-            broj= scanner.nextInt();
-            brojevi.add(broj);
-            i++;
+        System.out.println("Unesite ime autora");
 
-        }
+        String imeAutora= scanner.nextLine();
 
-        List<Integer> pozitivniBrojevi = new ArrayList<>();
-        List<Integer> negativniBrojevi = new ArrayList<>();
-
-        for (int y=0; y<brojevi.size(); y++){
-            if (brojevi.get(y) >= 0) {
-                pozitivniBrojevi.add(brojevi.get(y));
-            } else {
-                negativniBrojevi.add(brojevi.get(y));
+        System.out.println("Knjige od autora " +imeAutora+ " su: ");
+        for (int i=0; i<listaKnjiga.size(); i++) {
+            if (imeAutora.equals(listaKnjiga.get(i).getAutor())){
+                System.out.println(listaKnjiga.get(i).getNaslov() + " ,godina izdavanja : " + listaKnjiga.get(i).getGodinaIzdanja());
             }
         }
-
-        int zbrojPozitivnihBrojeva=0;
-        for (int z=0; z<pozitivniBrojevi.size(); z++){
-            zbrojPozitivnihBrojeva = zbrojPozitivnihBrojeva + pozitivniBrojevi.get(z);
-        }
-
-        int zbrojNegativnihBrojeva= 0;
-        for (int z=0; z<negativniBrojevi.size(); z++){
-            zbrojNegativnihBrojeva = zbrojNegativnihBrojeva + negativniBrojevi.get(z);
-        }
-
-
-
-        System.out.println("Zbroj pozitivnih brojevi: " + zbrojPozitivnihBrojeva + "\nZbroj negativnih brojevi: " + zbrojNegativnihBrojeva);
-
 
 
     }
