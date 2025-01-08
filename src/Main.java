@@ -4,25 +4,65 @@ import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
 
-        TreeSet<String> gradovi = new TreeSet<>();
+        HashSet<String> odjelA = new HashSet<>();
 
-        gradovi.add("Osijek");
-        gradovi.add("Zagreb");
-        gradovi.add("Split");
-        gradovi.add("Rijeka");
-        gradovi.add("Varaždin");
-
-        System.out.println("Gradovi u sortiranom obliku: " + gradovi);
+        HashSet<String> odjelB = new HashSet<>();
 
 
-        System.out.println("Prvi grad u skupu: " + gradovi.first());
+        odjelA.add("Marko");
+        odjelA.add("Mario");
+        odjelA.add("Ivan");
+        odjelA.add("Filip");
 
-        System.out.println("Zadnji grad u skupu: " + gradovi.last());
+        odjelB.add("Marko");
+        odjelB.add("Marin");
+        odjelB.add("Alen");
+        odjelB.add("Leon");
 
 
-        gradovi.remove("Varaždin");
+        HashSet<String> odjelAB = new HashSet<>();
 
-        System.out.println("Gradovi u sortiranom obliku nakon brisanja grada : " + gradovi);
+        odjelAB.addAll(odjelA);
+        odjelAB.addAll(odjelB);
+
+        System.out.println("Zaposlenici odjela A i B su: " + odjelAB);
+
+
+
+
+
+
+        HashSet<String> uObaOdjela = new HashSet<>();
+
+        HashSet<String> SamoAOdjel = new HashSet<>();
+
+        if (odjelB.contains("Marko")){
+            uObaOdjela.add("Marko");
+        } else SamoAOdjel.add("Marko");
+
+        if (odjelB.contains("Mario")){
+            uObaOdjela.add("Mario");
+        }else SamoAOdjel.add("Mario");
+
+        if (odjelB.contains("Ivan")){
+            uObaOdjela.add("Ivan");
+        }else SamoAOdjel.add("Ivan");
+
+        if (odjelB.contains("Filip")){
+            uObaOdjela.add("Filip");
+        }else SamoAOdjel.add("Filip");
+
+        System.out.println("Zaposlenici koji rade u oba odjela: " + uObaOdjela);
+
+        System.out.println("Zaposlenici koji rade samo u A odjelu: " + SamoAOdjel);
+
+
+
+
+
+
+
+
 
 
     }
