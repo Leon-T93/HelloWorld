@@ -36,21 +36,14 @@ public class Main {
 
         HashSet<String> SamoAOdjel = new HashSet<>();
 
-        if (odjelB.contains("Marko")){
-            uObaOdjela.add("Marko");
-        } else SamoAOdjel.add("Marko");
 
-        if (odjelB.contains("Mario")){
-            uObaOdjela.add("Mario");
-        }else SamoAOdjel.add("Mario");
+        for (String s : odjelA) {
+            if (odjelB.contains(s)){
+                uObaOdjela.add(s);
+            } else SamoAOdjel.add(s);
+        }
 
-        if (odjelB.contains("Ivan")){
-            uObaOdjela.add("Ivan");
-        }else SamoAOdjel.add("Ivan");
 
-        if (odjelB.contains("Filip")){
-            uObaOdjela.add("Filip");
-        }else SamoAOdjel.add("Filip");
 
         System.out.println("Zaposlenici koji rade u oba odjela: " + uObaOdjela);
 
