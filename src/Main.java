@@ -1,28 +1,29 @@
 import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
 
-        HashSet<String> studenti = new HashSet<>();
+        TreeSet<String> gradovi = new TreeSet<>();
 
-        studenti.add("Marko");
-        studenti.add("Mario");
-        studenti.add("Luka");
-        studenti.add("Filip");
-        studenti.add("Vinko");
+        gradovi.add("Osijek");
+        gradovi.add("Zagreb");
+        gradovi.add("Split");
+        gradovi.add("Rijeka");
+        gradovi.add("Varaždin");
 
-
-        if (studenti.contains("Filip")){
-            System.out.println("Filip je student.");
-        }else System.out.println("Filip nije student.");
+        System.out.println("Gradovi u sortiranom obliku: " + gradovi);
 
 
-        System.out.println("Studenti su: " + studenti);
+        System.out.println("Prvi grad u skupu: " + gradovi.first());
+
+        System.out.println("Zadnji grad u skupu: " + gradovi.last());
 
 
-        studenti.remove("Filip");
+        gradovi.remove("Varaždin");
 
-        System.out.println("Studenti nakon promjene su: " + studenti);
+        System.out.println("Gradovi u sortiranom obliku nakon brisanja grada : " + gradovi);
+
 
     }
 
