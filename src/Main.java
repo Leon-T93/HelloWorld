@@ -1,32 +1,28 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        HashSet<String> studenti = new HashSet<>();
 
-        List<Student> listaStudenata = new ArrayList<>();
+        studenti.add("Marko");
+        studenti.add("Mario");
+        studenti.add("Luka");
+        studenti.add("Filip");
+        studenti.add("Vinko");
 
-        Student student1= new Student("Marko", "Maric",2.5);
-        listaStudenata.add(student1);
-        Student student2= new Student("Ivan", "Ivic",4.5);
-        listaStudenata.add(student2);
-        Student student3= new Student("Sara", "Saric",3.5);
-        listaStudenata.add(student3);
 
-        double najboljiProsjekOcjena=0;
-        Student najboljiStuden = null;
-        for (int i=0; i<listaStudenata.size(); i++) {
-            if (najboljiProsjekOcjena < listaStudenata.get(i).getProsjekOcjena()) {
-                najboljiProsjekOcjena = listaStudenata.get(i).getProsjekOcjena();
-                najboljiStuden = listaStudenata.get(i);
-            }
-        }
+        if (studenti.contains("Filip")){
+            System.out.println("Filip je student.");
+        }else System.out.println("Filip nije student.");
 
-        System.out.println("Najbolji student: "+ "\n" +najboljiStuden.getIme() +" " + najboljiStuden.getPrezime() +" sa prosjekom ocjena: " + najboljiStuden.getProsjekOcjena());
 
+        System.out.println("Studenti su: " + studenti);
+
+
+        studenti.remove("Filip");
+
+        System.out.println("Studenti nakon promjene su: " + studenti);
 
     }
 
