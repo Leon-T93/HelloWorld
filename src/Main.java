@@ -1,53 +1,94 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
 
-        HashSet<String> odjelA = new HashSet<>();
 
-        HashSet<String> odjelB = new HashSet<>();
+        Scanner scanner = new Scanner(System.in);
 
-
-        odjelA.add("Marko");
-        odjelA.add("Mario");
-        odjelA.add("Ivan");
-        odjelA.add("Filip");
-
-        odjelB.add("Marko");
-        odjelB.add("Marin");
-        odjelB.add("Alen");
-        odjelB.add("Leon");
+        HashMap<String, Polaznik> evidencijaPolaznika = new HashMap<>();
 
 
-        HashSet<String> odjelAB = new HashSet<>();
+        int odabir;
 
-        odjelAB.addAll(odjelA);
-        odjelAB.addAll(odjelB);
-
-        System.out.println("Zaposlenici odjela A i B su: " + odjelAB);
+        System.out.println("Odaberite 1 za unos studenta, 2 za ispis studenata.");
 
 
+        do {
+            odabir = scanner.nextInt();
+            if (odabir==2){
+                System.out.println("Polaznici: " + evidencijaPolaznika);
+                break;
+            }
+            Polaznik polaznik= new Polaznik();
+            System.out.println("Unesite email studenta: ");
+            String provjeraEmaila = scanner.next();
+            if (evidencijaPolaznika.containsKey(provjeraEmaila)){
+                System.out.println("Ovaj email vec postoji.");
+                break;
+            }else {
+                polaznik.setEmail(provjeraEmaila);
+            }
+
+            System.out.println("Unesite ime studenta: ");
+            polaznik.setIme(scanner.next());
+
+            System.out.println("Unesite prezime studenta: ");
+            polaznik.setPrezime(scanner.next());
+
+            evidencijaPolaznika.put(polaznik.getEmail(), polaznik);
+        }while (odabir<2);
 
 
 
 
-        HashSet<String> uObaOdjela = new HashSet<>();
-
-        HashSet<String> SamoAOdjel = new HashSet<>();
 
 
-        for (String s : odjelA) {
-            if (odjelB.contains(s)){
-                uObaOdjela.add(s);
-            } else SamoAOdjel.add(s);
+
+
+
+
+
+        int odabir2;
+
+        System.out.println("Odaberite 1 za unos studenta, 2 za ispis studenata, 3 za izlaz.");
+        odabir2 = scanner.nextInt();
+
+
+        switch (odabir2){
+            case 1:
+                Polaznik polaznik= new Polaznik();
+                System.out.println("Unesite email studenta: ");
+                String provjeraEmaila = scanner.next();
+                if (evidencijaPolaznika.containsKey(provjeraEmaila)){
+                    System.out.println("Ovaj email vec postoji.");
+                    break;
+                }else {
+                    polaznik.setEmail(provjeraEmaila);
+                }
+
+                System.out.println("Unesite ime studenta: ");
+                polaznik.setIme(scanner.next());
+
+                System.out.println("Unesite prezime studenta: ");
+                polaznik.setPrezime(scanner.next());
+
+                evidencijaPolaznika.put(polaznik.getEmail(), polaznik);
+
+
+            case 2:
+                System.out.println("Polaznici: " + evidencijaPolaznika);
+
+            default: break;
+
         }
 
 
 
-        System.out.println("Zaposlenici koji rade u oba odjela: " + uObaOdjela);
 
-        System.out.println("Zaposlenici koji rade samo u A odjelu: " + SamoAOdjel);
 
 
 
