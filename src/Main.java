@@ -22,6 +22,10 @@ public class Main {
             odabir = scanner.nextInt();
             if (odabir==2){
                 System.out.println("Polaznici: " + evidencijaPolaznika);
+                System.out.println("Odaberite 1 za unos studenta, 2 za ispis studenata, 3 za izlaz.");
+                odabir = scanner.nextInt();
+            }
+            if (odabir==3){
                 break;
             }
             Polaznik polaznik= new Polaznik();
