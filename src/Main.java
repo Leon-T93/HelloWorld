@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,43 +6,51 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        HashMap<String, Polaznik> evidencijaPolaznika = new HashMap<>();
+        System.out.println("Molim unesite zeljene brojeve i razdvojite ih razmakom!");
+
+        String uneseniBrojevi= scanner.nextLine();
+
+        HashSet brojevi = new HashSet<>();
+
+        HashSet neJedinstevniBrojevi = new HashSet<>();
 
 
-        int odabir;
-
-
-
-
-        do {
-            System.out.println("Odaberite 1 za unos studenta, 2 za ispis studenata, 3 za izlaz.");
-            odabir = scanner.nextInt();
-            if (odabir==2){
-                System.out.println("Polaznici: " + evidencijaPolaznika);
-                System.out.println("Odaberite 1 za unos studenta, 2 za ispis studenata, 3 za izlaz.");
-                odabir = scanner.nextInt();
+        for (String broj : uneseniBrojevi.split(" ")) {
+            if (brojevi.contains(broj)){
+                neJedinstevniBrojevi.add(broj);
             }
-            if (odabir==3){
-                break;
+            brojevi.add(broj);
+        }
+
+        for (Object broj : neJedinstevniBrojevi) {
+            if (brojevi.contains(broj)){
+                brojevi.remove(broj);
             }
-            Polaznik polaznik= new Polaznik();
-            System.out.println("Unesite email studenta: ");
-            String provjeraEmaila = scanner.next();
-            if (evidencijaPolaznika.containsKey(provjeraEmaila)){
-                System.out.println("Ovaj email vec postoji.");
-                break;
-            }else {
-                polaznik.setEmail(provjeraEmaila);
-            }
+        }
 
-            System.out.println("Unesite ime studenta: ");
-            polaznik.setIme(scanner.next());
+        System.out.println("Jedinstveni brojevi su: " + brojevi);
 
-            System.out.println("Unesite prezime studenta: ");
-            polaznik.setPrezime(scanner.next());
+        HashSet brojevi2 = new HashSet<>();
 
-            evidencijaPolaznika.put(polaznik.getEmail(), polaznik);
-        }while (odabir!=1 && odabir!=2);
+        for (Object broj : brojevi) {
+            brojevi2.add(Integer.valueOf((String) broj));
+
+        }
+
+
+        System.out.println("Najveci broj je: " + Collections.max(brojevi2));
+
+        System.out.println("Najmanji broj je: " + Collections.min(brojevi2));
+
+
+
+
+
+
+
+
+
+
 
 
 
