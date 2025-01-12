@@ -6,30 +6,50 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Molim unesite tekst.");
+        HashMap<String, List> proizvodi = new HashMap<>();
 
-        String recenica = scanner.nextLine();
 
-        HashMap rijeci = new HashMap<>();
+        List<String> voce = new ArrayList<>();
+        List<String> povrce = new ArrayList<>();
 
-        String recenicaBezZnakova = recenica.replaceAll("\\p{Punct}", "");
 
-        int i=1;
+        System.out.println("Za unos proizvoda birajte 1, za ispis birajte 2.");
 
-        for (String rijec : recenicaBezZnakova.toLowerCase().split(" ")) {
-            int j= rijeci.get(rijec);
-            if (rijeci.containsKey(rijec)){
-                rijeci.put(rijec, j+1);
-            }else {
-                rijeci.put(rijec, i);
+        int odabir1= scanner.nextInt();
 
+        while (odabir1 < 2) {
+            System.out.println("Unesite ime proizvoda.");
+            String nazivProizvoda = scanner.next();
+
+            System.out.println("Odaberite 1 za voce, 2 za povrce.");
+
+            int odabir = scanner.nextInt();
+
+            if (odabir ==1){
+                voce.add(nazivProizvoda);
             }
+            if (odabir == 2){
+                povrce.add(nazivProizvoda);
+            }
+            System.out.println("Za unos proizvoda birajte 1, za ispis birajte 2.");
+            odabir1= scanner.nextInt();
 
         }
 
 
+        proizvodi.put("voce", voce);
+        proizvodi.put("povrce", povrce);
 
-        System.out.println(rijeci);
+
+        System.out.println("Voce: " + proizvodi.get("voce"));
+        System.out.println("Povrce: " + proizvodi.get("povrce"));
+
+        System.out.println("Proizvodi: " + proizvodi);
+
+
+
+
+
 
 
 
