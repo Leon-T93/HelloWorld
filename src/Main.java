@@ -6,51 +6,30 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Molim unesite zeljene brojeve i razdvojite ih razmakom!");
+        System.out.println("Molim unesite tekst.");
 
-        String uneseniBrojevi= scanner.nextLine();
+        String recenica = scanner.nextLine();
 
-        HashSet brojevi = new HashSet<>();
+        HashMap rijeci = new HashMap<>();
 
-        HashSet neJedinstevniBrojevi = new HashSet<>();
+        String recenicaBezZnakova = recenica.replaceAll("\\p{Punct}", "");
 
+        int i=1;
 
-        for (String broj : uneseniBrojevi.split(" ")) {
-            if (brojevi.contains(broj)){
-                neJedinstevniBrojevi.add(broj);
+        for (String rijec : recenicaBezZnakova.toLowerCase().split(" ")) {
+            int j= rijeci.get(rijec);
+            if (rijeci.containsKey(rijec)){
+                rijeci.put(rijec, j+1);
+            }else {
+                rijeci.put(rijec, i);
+
             }
-            brojevi.add(broj);
-        }
-
-        for (Object broj : neJedinstevniBrojevi) {
-            if (brojevi.contains(broj)){
-                brojevi.remove(broj);
-            }
-        }
-
-        System.out.println("Jedinstveni brojevi su: " + brojevi);
-
-        HashSet brojevi2 = new HashSet<>();
-
-        for (Object broj : brojevi) {
-            brojevi2.add(Integer.valueOf((String) broj));
 
         }
 
 
-        System.out.println("Najveci broj je: " + Collections.max(brojevi2));
 
-        System.out.println("Najmanji broj je: " + Collections.min(brojevi2));
-
-
-
-
-
-
-
-
-
-
+        System.out.println(rijeci);
 
 
 
