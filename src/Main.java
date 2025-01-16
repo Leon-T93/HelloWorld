@@ -15,7 +15,9 @@ public class Main {
         Connection connection = DatabaseService.createConnection();
 
 
-        
+        dodavanjeNovihOsoba(connection);
+
+        azuriranjePrezimenaPoIDu(connection);
 
         obrisiOsobePoDatumuRodenja(connection);
 
