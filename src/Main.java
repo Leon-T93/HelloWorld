@@ -47,7 +47,7 @@ public class Main {
 
             String query2 = "DELETE FROM Racun WHERE IDRacun =?";
             PreparedStatement preparedStatement2 = connection.prepareStatement(query2);
-            preparedStatement.setString(1, unesenIDRacuna);
+            preparedStatement2.setString(1, unesenIDRacuna);
 
             preparedStatement.executeUpdate();
             preparedStatement2.executeUpdate();
