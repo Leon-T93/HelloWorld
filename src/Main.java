@@ -41,16 +41,20 @@ public class Main {
         try {
             String query = "INSERT INTO Racun (DatumIzdavanja,BrojRacuna,KupacID,KomercijalistID,KreditnaKarticaID) VALUES ('20010901', 'Test1',378,279,16281)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeUpdate();
+            System.out.println("query 1");
 
             String query2= "SELECT * FROM Racun WHERE BrojRacuna= 'Test1'";
             PreparedStatement preparedStatement2= connection.prepareStatement(query2);
+            preparedStatement2.executeUpdate();
             ResultSet resultSet =preparedStatement2.executeQuery();
-            String brojRacunauStavki=resultSet.getString("IDRacun");
+            String brojRacunaUStavki=resultSet.getString("IDRacun");
+            System.out.println("query 2");
 
 
             String query3= "INSERT INTO Stavka (RacunID,Kolicina,ProizvodID,CijenaPoKomadu,PopustUPostocima,UkupnaCijena) VALUES (?,1,776,2024.994000,0,2024.994000)";
             PreparedStatement preparedStatement3= connection.prepareStatement(query3);
-            preparedStatement3.setString(1,brojRacunauStavki);
+            preparedStatement3.setString(1,brojRacunaUStavki);
 
 
             String query4= "SELECT * FROM Proizvod WHERE IDProizvod = 776";
@@ -59,12 +63,13 @@ public class Main {
             Integer minimalnaKolicinaNaSkladistu= resultSet2.getInt("MinimalnaKolicinaNaSkladistu");
 
 
-            PreparedStatement preparedStatement5=null;
+
 
             if (minimalnaKolicinaNaSkladistu >0){
                 String query5= "UPDATE Proizvod SET MinimalnaKolicinaNaSkladistu = ? WHERE IDProizvod = 776 ";
-                preparedStatement5= connection.prepareStatement(query5);
+                PreparedStatement preparedStatement5= connection.prepareStatement(query5);
                 preparedStatement5.setInt(1,(minimalnaKolicinaNaSkladistu-1));
+                preparedStatement5.executeUpdate();
 
             }else connection.rollback();
 
@@ -73,11 +78,11 @@ public class Main {
 
 
 
-            preparedStatement.executeUpdate();
-            preparedStatement2.executeUpdate();
+
+
             preparedStatement3.executeUpdate();
             preparedStatement4.executeUpdate();
-            preparedStatement5.executeUpdate();
+
 
             connection.commit();
 
