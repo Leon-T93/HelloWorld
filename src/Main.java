@@ -1,8 +1,6 @@
 import database.DatabaseService;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -117,7 +115,7 @@ public class Main {
         preparedStatement.setString(1,novoIme);
         preparedStatement.setString(2,novoPrezime);
         preparedStatement.setInt(3,idNastavnika);
-        preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
 
         preparedStatement.close();
@@ -142,7 +140,7 @@ public class Main {
         String query = "DELETE FROM Ucenik WHERE IdUcenik= ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1,idUcenikaZaBrisanje);
-        preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
 
         preparedStatement.close();
@@ -164,17 +162,16 @@ public class Main {
         System.out.println("Unesite ID razreda: ");
         int razredID = scanner.nextInt();
 
-        String query = "SELECT * FROM Razred AS r LEFT JOIN Ucenik AS u ON u.RazredId = r.IdRazred LEFT JOIN Nastavnik AS n ON n.IdNastavnik= r.NastavnikId WHERE r.IdRazred = ?";
+        String query = "SELECT u.Ime +' ' +u.Prezime AS ImeUcenika, r.Naziv AS NazivRazreda, n.Ime + ' ' + n.Prezime AS ImeNastavnika FROM Razred AS r LEFT JOIN Ucenik AS u ON u.RazredId = r.IdRazred LEFT JOIN Nastavnik AS n ON n.IdNastavnik= r.NastavnikId WHERE r.IdRazred = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1,razredID);
-        preparedStatement.executeQuery();
 
 
-        ResultSet resultSet = preparedStatement.executeQuery(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()) {
-            System.out.println("Ime ucenika: "+resultSet.getString("u.Ime")+" "+resultSet.getString("u.Prezime"));
-            System.out.println("Naziv razreda: " + resultSet.getString("r.Naziv"));
-            System.out.println("Ime nastavnika: "+resultSet.getString("n.Ime")+" "+resultSet.getString("n.Prezime"));
+            System.out.println("Ime ucenika: "+resultSet.getString("ImeUcenika"));
+            System.out.println("Naziv razreda: " + resultSet.getString("NazivRazreda"));
+            System.out.println("Ime nastavnika: "+resultSet.getString("ImeNastavnika"));
         }
 
         resultSet.close();
@@ -202,8 +199,8 @@ public class Main {
         String query= "UPDATE Ucenik SET RazredId = ? WHERE IdUcenik = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setInt(1,idNovogRazreda);
-        preparedStatement.setInt(1,idUcenika);
-        preparedStatement.executeQuery();
+        preparedStatement.setInt(2,idUcenika);
+        preparedStatement.executeUpdate();
 
 
         preparedStatement.close();
@@ -224,11 +221,12 @@ public class Main {
         String query= "SELECT * FROM Razred WHERE Naziv = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1,naziv);
-        preparedStatement.executeQuery();
 
 
-        ResultSet resultSet = preparedStatement.executeQuery(query);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
         System.out.println("Razred ID: " +resultSet.getInt("IdRazred")+" "+"Naziv razreda: " +resultSet.getString("Naziv")+" "+ "Nastavnik ID: " + resultSet.getInt("NastavnikId"));
+        }
 
         preparedStatement.close();
         resultSet.close();
@@ -256,7 +254,7 @@ public class Main {
         preparedStatement.setString(1,ime);
         preparedStatement.setString(2,prezime);
         preparedStatement.setString(3,email);
-        preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
         preparedStatement.close();
         connection.commit();
@@ -280,7 +278,7 @@ public class Main {
         PreparedStatement preparedStatement = connection.prepareStatement(query);
         preparedStatement.setString(1,nazivRazreda);
         preparedStatement.setInt(2,nastavnikID);
-        preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
         preparedStatement.close();
         connection.commit();
@@ -306,7 +304,7 @@ public class Main {
         preparedStatement.setString(1,ime);
         preparedStatement.setString(2,prezime);
         preparedStatement.setInt(3,razredID);
-        preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
 
         preparedStatement.close();
@@ -357,7 +355,7 @@ public class Main {
 
         while (resultSet.next()) {
 
-            System.out.println("ID: "+resultSet.getInt("IdRazred")+" "+ "Ime i prezime: " + resultSet.getString("Ime")+" "+ resultSet.getString("Prezime"));
+            System.out.println("ID: "+resultSet.getInt("IdNastavnik")+" "+ "Ime i prezime: " + resultSet.getString("Ime")+" "+ resultSet.getString("Prezime"));
         }
 
         resultSet.close();
