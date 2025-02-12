@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseService {
 
     public static Connection createConnection(){
-        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=AdventureWorksOBP;encrypt=true;trustServerCertificate=true";
+        String url = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=Skola;encrypt=true;trustServerCertificate=true";
         String user = "root";
         String password = "password";
 
