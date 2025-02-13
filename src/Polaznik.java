@@ -1,4 +1,4 @@
-public class Ucenik {
+public class Polaznik {
 
     private Integer id;
 
@@ -6,7 +6,7 @@ public class Ucenik {
 
     private String prezime;
 
-    public Ucenik() {
+    public Polaznik() {
     }
 
     public Integer getId() {

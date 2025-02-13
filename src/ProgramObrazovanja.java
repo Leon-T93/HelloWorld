@@ -1,10 +1,12 @@
-public class Razred {
+public class ProgramObrazovanja {
 
     private Integer id;
 
     private String naziv;
 
-    public Razred() {
+    private Integer csvet;
+
+    public ProgramObrazovanja() {
     }
 
     public Integer getId() {
@@ -21,5 +23,13 @@ public class Razred {
 
     public void setNaziv(String naziv) {
         this.naziv = naziv;
+    }
+
+    public Integer getCsvet() {
+        return csvet;
+    }
+
+    public void setCsvet(Integer csvet) {
+        this.csvet = csvet;
     }
 }
